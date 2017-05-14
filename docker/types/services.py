@@ -219,6 +219,7 @@ class Mount(dict):
 
     @classmethod
     def _parse_mount_string_service(cls, string):
+        print "_PARSE_MOUNT_STRIng"
         mount_kwargs = {}
         try:
             target = source = None
@@ -254,7 +255,7 @@ class Mount(dict):
         except Exception as e:
             raise errors.InvalidArgument(
                 "Invalid mount format {0}\n{1}".format(string, e))
-
+        print target, source, mount_kwargs
         return cls(target, source, **mount_kwargs)
 
 
